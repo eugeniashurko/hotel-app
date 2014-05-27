@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.example.com/clients"
+		elementFormDefault="qualified"
+		xmlns:tns="http://www.example.com/clients">			
+			
+<xs:element name="clients">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="client" minOccurs="0" maxOccurs="unbounded" >
+				<xs:complexType>
+					<xs:sequence>
+								<xs:element name="id" type="xs:positiveInteger"/>
+								<xs:element name="name" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+								<xs:element name="surname" type="xs:string"/>
+								<xs:element name="passport">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:pattern value="[A-Z]{2}\d{6}"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="address" type="xs:string"/>
+								
+					</xs:sequence>
+					<xs:attribute name="sex" type="tns:sexType"/>						
+				</xs:complexType>
+			</xs:element>			
+						
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:unique name="passport_unique">
+		<xs:selector xpath="tns:client/tns:info"/>
+		<xs:field xpath="tns:passport"/>
+	</xs:unique>
+	
+</xs:element>
+
+<!-- Simple Types Global Definitions -->
+
+<xs:simpleType name="sexType">
+	<xs:restriction base="xs:NMTOKEN">
+		<xs:enumeration value="male"/>
+		<xs:enumeration value="female"/>
+	</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>

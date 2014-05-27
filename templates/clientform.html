@@ -1,0 +1,48 @@
+{% from "_formhelpers.html" import render_field %}
+<!doctype html>
+<html>
+	<head>
+		<title>New client</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='table.css') }}">
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<h1>Adding new client</h1>
+		<form method=post action="/newclient">
+		 <table class="form" width="480" border="0" align="center">
+		 	<tr class = "form">
+		 		<td class="form" height="251" colspan="2">
+			 		<div class="message"> 
+			 			Please, fill the information fields below
+				    </div>
+				    <div class="errors">
+				    	{{ ermes }}
+				    </div>
+				    {{ render_field(form.name) }}
+				    {{ render_field(form.surname) }}
+				    {{ render_field(form.passport) }}
+				    {{ render_field(form.address) }}
+				    <p>{{ form.sex.label }}
+				    	{% for error in form.sex.errors %}
+         					<div class="errors">{{ error }}</div>
+        				{% endfor %}
+				    {% for subfield in form.sex %}
+    				<p>
+    					{{ subfield }}
+        				{{ subfield.label }}
+					{% endfor %}
+				    <p><input type=submit value=Add>
+				</td>
+		  	</tr>
+		  </table> 
+		</form>
+ 	</body>
+ 	<br/>
+ 	<br/>
+ 	<footer>
+	  	<a href="/">Home</a> | 
+ 		<a href="/rooms">List of rooms</a> | 
+	  	<a href="/history">All clients history</a> | 
+	  	<a href="/book">Make new booking</a>
+ 	</footer>
+</html>

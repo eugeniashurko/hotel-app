@@ -1,0 +1,57 @@
+{% from "_formhelpers.html" import render_field %}
+<!doctype html>
+<html>
+	<head>
+		<title>New client</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='table.css') }}">
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<h1>Book the room</h1>
+		<form method=post action="/book">
+		 <table class="form" width="480" border="0" align="center">
+		 	<tr class = "form">
+		 		<td class="form" height="251" colspan="2">
+			 		<div class="message"> 
+			 			Please, fill the information fields below
+				    </div>
+				    <div class="errors">
+				    	{{ ermes }}
+				    </div>
+				    {{ render_field(form.room_id) }}
+				    {{ render_field(form.date_from) }}
+				    {{ render_field(form.date_to) }}
+				    {{ render_field(form.client_id) }}
+				    <p>{{ form.ptype.label }}
+				    	{% for error in form.ptype.errors %}
+         					<div class="errors">{{ error }}</div>
+        				{% endfor %}
+				    {% for subfield in form.ptype %}
+    				<p>
+    					{{ subfield }}
+        				{{ subfield.label }}
+					{% endfor %}
+					<p>{{ form.pdone.label }}
+				    	{% for error in form.pdone.errors %}
+         					<div class="errors">{{ error }}</div>
+        				{% endfor %}
+				    {% for subfield in form.pdone %}
+    				<p>
+    					{{ subfield }}
+        				{{ subfield.label }}
+					{% endfor %}
+				    <p><input type=submit value=Add>
+				</td>
+		  	</tr>
+		  </table> 
+		</form>
+ 	</body>
+ 	<br/>
+ 	<br/>
+ 	<footer>
+	  	<a href="/">Home</a> | 
+ 		<a href="/rooms">List of rooms</a> | 
+	  	<a href="/history">All clients history</a> | 
+	  	<a href="/newclient">Add client</a>
+ 	</footer>
+</html>

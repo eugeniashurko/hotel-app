@@ -1,0 +1,240 @@
+<!-- Example of valid XML document - main scheme hotel.xsd  --><hotel xmlns:cl="http://www.example.com/clients" xmlns:hi="http://www.example.com/history" xmlns:ro="http://www.example.com/rooms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hotel.xsd">
+
+    <ro:rooms>
+        <ro:room>   
+            <ro:room_id>10</ro:room_id>
+            <ro:description>
+                <ro:floor>1</ro:floor>
+                <ro:balcony>No</ro:balcony>
+                <ro:fridge>No</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>2</ro:number>
+                    <ro:type>2 Separate Beds</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">23.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>11</ro:room_id>
+            <ro:description>
+                <ro:floor>1</ro:floor>
+                <ro:balcony>No</ro:balcony>
+                <ro:fridge>No</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>1</ro:number>
+                    <ro:type>Single Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">15.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>12</ro:room_id>
+            <ro:description>
+                <ro:floor>1</ro:floor>
+                <ro:balcony>No</ro:balcony>
+                <ro:fridge>Yes</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>2</ro:number>
+                    <ro:type>Double Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">20.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>20</ro:room_id>
+            <ro:description>
+                <ro:floor>2</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>Yes</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>1</ro:number>
+                    <ro:type>Single Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">15.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>21</ro:room_id>
+            <ro:description>
+                <ro:floor>2</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>Yes</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>3</ro:number>
+                    <ro:type>3 Separate Beds</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">30.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>22</ro:room_id>
+            <ro:description>
+                <ro:floor>2</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>Yes</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>2</ro:number>
+                    <ro:type>Double Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">20.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>30</ro:room_id>
+            <ro:description>
+                <ro:floor>3</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>No</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>2</ro:number>
+                    <ro:type>2 Separate Beds</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">20.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>31</ro:room_id>
+            <ro:description>
+                <ro:floor>3</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>No</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>2</ro:number>
+                    <ro:type>Double Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">20.00</ro:price>
+        </ro:room>
+        
+        <ro:room>   
+            <ro:room_id>32</ro:room_id>
+            <ro:description>
+                <ro:floor>3</ro:floor>
+                <ro:balcony>Yes</ro:balcony>
+                <ro:fridge>No</ro:fridge>
+                <ro:conditioning>Yes</ro:conditioning>
+                <ro:places>
+                    <ro:number>1</ro:number>
+                    <ro:type>Single Bed</ro:type>
+                </ro:places>
+            </ro:description>
+            <ro:price currency="USD">15.00</ro:price>
+        </ro:room>
+        
+    </ro:rooms>
+    
+    
+<!-- Clients started -->    
+    
+    <cl:clients>
+        <cl:client sex="male">
+                <cl:id>1</cl:id>
+                <cl:name>John</cl:name>
+                <cl:surname>Paul</cl:surname>
+                <cl:passport>OU199002</cl:passport>
+                <cl:address>34 Backer Street, app.23, London, UK</cl:address>
+        </cl:client>
+        
+        <cl:client sex="female">
+                <cl:id>2</cl:id>
+                <cl:name>Audrey</cl:name>
+                <cl:surname>Tautou</cl:surname>
+                <cl:passport>RT239412</cl:passport>
+                <cl:address>34 Haussmann Boulevard, app.1, Paris, France</cl:address>
+        </cl:client>
+        
+        <cl:client sex="male">
+                <cl:id>3</cl:id>
+                <cl:name>Jurij</cl:name>
+                <cl:surname>Bodnarchuk</cl:surname>
+                <cl:passport>HY322323</cl:passport>
+                <cl:address>4 Skovorody Street, app.12, Kyiv, Ukraine</cl:address>
+        </cl:client>
+    
+        <cl:client sex="male">
+                <cl:id>4</cl:id>
+                <cl:name>James</cl:name>
+                <cl:surname>Morrison</cl:surname>
+                <cl:passport>TY010203</cl:passport>
+                <cl:address>34 Love Street, app.13, Chicago, USA</cl:address>
+        </cl:client>
+    <cl:client sex="female"><cl:id>5</cl:id><cl:name>Mariana</cl:name><cl:surname>Kuzemska</cl:surname><cl:passport>HH454545</cl:passport><cl:address>app.4, Gogo Street, 00-000 Lviv, Ukraine</cl:address></cl:client><cl:client sex="male"><cl:id>6</cl:id><cl:name>Tito</cl:name><cl:surname>Giovanni</cl:surname><cl:passport>TT448833</cl:passport><cl:address>app.3, Via del'Amba Aradam, 23, 00-223 Rome, Italy</cl:address></cl:client><cl:client sex="male"><cl:id>7</cl:id><cl:name>Joe</cl:name><cl:surname>Jack</cl:surname><cl:passport>GG868686</cl:passport><cl:address>app.4, Gogo Street, 00-000 Lviv, Ukraine</cl:address></cl:client>
+<cl:client sex="female"><cl:id>8</cl:id><cl:name>Coco</cl:name><cl:surname>Chanel</cl:surname><cl:passport>HH454544</cl:passport><cl:address>app.4, Lala Street, 00-000 Paris, France</cl:address></cl:client><cl:client sex="male"><cl:id>9</cl:id><cl:name>Fred</cl:name><cl:surname>Wisley</cl:surname><cl:passport>LL565656</cl:passport><cl:address>app.56, Magic Street, 45-545 Rome, Italy</cl:address></cl:client><cl:client sex="male"><cl:id>10</cl:id><cl:name>Harry</cl:name><cl:surname>Truman</cl:surname><cl:passport>GG789078</cl:passport><cl:address>djsdkfd</cl:address></cl:client><cl:client sex="female"><cl:id>11</cl:id><cl:name>Lalala</cl:name><cl:surname>Blabla</cl:surname><cl:passport>EE122222</cl:passport><cl:address>fdsf</cl:address></cl:client></cl:clients>
+    
+<!-- History started -->
+    <hi:history>
+        <hi:book>
+            <hi:book_id>1</hi:book_id>
+            <hi:dates>
+                <hi:from>2012-03-01</hi:from>
+                <hi:to>2012-03-03</hi:to>   
+            </hi:dates>
+            <hi:room_id>11</hi:room_id>
+            <hi:client_id>1</hi:client_id>
+            <hi:payment>
+                    <hi:type>Cash</hi:type>
+                    <hi:done>Yes</hi:done>
+                    <hi:total_summ currency="USD">30.00</hi:total_summ>
+            </hi:payment>
+        </hi:book>
+        <hi:book>
+            <hi:book_id>2</hi:book_id>
+            <hi:dates>
+                <hi:from>2012-03-11</hi:from>
+                <hi:to>2012-03-13</hi:to>   
+            </hi:dates>
+            <hi:room_id>32</hi:room_id>
+            <hi:client_id>4</hi:client_id>
+            <hi:payment>
+                    <hi:type>Cash</hi:type>
+                    <hi:done>Yes</hi:done>
+                    <hi:total_summ currency="USD">30.00</hi:total_summ>
+            </hi:payment>
+        </hi:book>
+        <hi:book>
+            <hi:book_id>3</hi:book_id>
+            <hi:dates>
+                <hi:from>2012-04-21</hi:from>
+                <hi:to>2012-04-22</hi:to>
+            </hi:dates>
+            <hi:room_id>12</hi:room_id>
+            <hi:client_id>3</hi:client_id>
+            <hi:payment>
+                <hi:type>Cash</hi:type>
+                <hi:done>No</hi:done>
+                <hi:total_summ currency="USD">20.00</hi:total_summ>
+            </hi:payment>
+        </hi:book>
+
+        <hi:book>
+            <hi:book_id>4</hi:book_id>
+            <hi:dates>
+                <hi:from>2012-04-11</hi:from>
+                <hi:to>2012-04-13</hi:to>
+            </hi:dates>
+            <hi:room_id>12</hi:room_id>
+            <hi:client_id>2</hi:client_id>
+            <hi:payment>
+                <hi:type>Card</hi:type>
+                <hi:done>Yes</hi:done>
+                <hi:total_summ currency="USD">40.00</hi:total_summ>
+            </hi:payment>
+        </hi:book>
+    <hi:book><hi:book_id>5</hi:book_id><hi:dates><hi:from>2012-12-14</hi:from><hi:to>2013-01-01</hi:to></hi:dates><hi:room_id>10</hi:room_id><hi:client_id>8</hi:client_id><hi:payment><hi:type>Card</hi:type><hi:done>Yes</hi:done><hi:total_summ currency="USD">414.0</hi:total_summ></hi:payment></hi:book><hi:book><hi:book_id>6</hi:book_id><hi:dates><hi:from>1993-06-11</hi:from><hi:to>1993-06-13</hi:to></hi:dates><hi:room_id>30</hi:room_id><hi:client_id>9</hi:client_id><hi:payment><hi:type>Card</hi:type><hi:done>Yes</hi:done><hi:total_summ currency="USD">40.0</hi:total_summ></hi:payment></hi:book><hi:book><hi:book_id>7</hi:book_id><hi:dates><hi:from>2003-10-23</hi:from><hi:to>2003-11-02</hi:to></hi:dates><hi:room_id>12</hi:room_id><hi:client_id>2</hi:client_id><hi:payment><hi:type>Cash</hi:type><hi:done>No</hi:done><hi:total_summ currency="USD">200.0</hi:total_summ></hi:payment></hi:book></hi:history>
+
+</hotel>

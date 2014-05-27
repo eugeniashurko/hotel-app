@@ -1,0 +1,96 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.example.com/rooms"
+			elementFormDefault="qualified"
+			xmlns:tns="http://www.example.com/rooms">
+			
+			
+<xs:element name="rooms">
+	<xs:complexType>
+		<xs:sequence>
+				<xs:element name="room" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+						
+							<xs:element name="room_id" type="xs:positiveInteger"/>
+						
+							<xs:element name="description">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="floor" type="xs:positiveInteger"/>
+										<xs:element name="balcony" type="tns:yesNoType"/>
+										<xs:element name="fridge" type="tns:yesNoType"/>
+										<xs:element name="conditioning" type="tns:yesNoType"/>
+										<xs:element name="places">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="number">
+														 <xs:simpleType>
+														 	<xs:restriction base="xs:positiveInteger">
+																<xs:minInclusive value="1"/>
+          														<xs:maxInclusive value="4"/>			
+															</xs:restriction>
+														 </xs:simpleType>
+													</xs:element>
+													<xs:element name="type" type="tns:bedTypeEnum"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>	
+							</xs:element>
+							
+							<xs:element name="price" type="tns:priceType"/>
+						
+			
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Simple Types Global Definitions -->
+
+<xs:simpleType name="yesNoType">
+	<xs:restriction base="xs:NMTOKEN">
+		<xs:enumeration value="Yes"/>
+        <xs:enumeration value="No"/>			
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="bedTypeEnum">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Single Bed"/>
+        <xs:enumeration value="Double Bed"/>
+        <xs:enumeration value="2 Separate Beds"/>
+        <xs:enumeration value="3 Separate Beds"/>
+        <xs:enumeration value="4 Separate Beds"/>			
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="simplePriceType">
+		<xs:restriction base="xs:decimal">
+	 		<xs:fractionDigits value='2'/>	
+	 		<xs:minInclusive value='0.00'/>		
+		</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="priceType">
+	<xs:simpleContent>
+		<xs:extension base = "tns:simplePriceType">
+			<xs:attribute name="currency" type="tns:currencyType" use="required"/>
+        </xs:extension>
+     </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="currencyType">
+	<xs:restriction base="xs:NMTOKEN">
+		<xs:enumeration value="USD"/>
+        <xs:enumeration value="EUR"/>
+        <xs:enumeration value="PLN"/>			
+	</xs:restriction>
+</xs:simpleType>
+
+
+
+</xs:schema>

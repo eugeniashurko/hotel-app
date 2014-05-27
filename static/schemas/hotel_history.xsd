@@ -1,0 +1,56 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.example.com/history"
+		elementFormDefault="qualified"
+		xmlns:tns="http://www.example.com/history"
+		xmlns:ro="http://www.example.com/rooms">
+
+<xs:import namespace="http://www.example.com/rooms" schemaLocation="hotel_rooms.xsd"/>
+
+<!-- History sub-base maintain relation between rooms and clients -->
+		
+<xs:element name="history">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="book" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="book_id" type="xs:positiveInteger"/>
+						<xs:element name="dates" type="tns:datesType"/>
+						<xs:element name="room_id" type="xs:positiveInteger"/>
+						<xs:element name="client_id" type="xs:positiveInteger"/>
+						<xs:element name="payment" type="tns:paymentFullType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>	
+	
+<!-- (more) Simple types definitions -->	
+
+<xs:complexType name="datesType">
+	<xs:sequence>
+		<xs:element name="from" type="xs:date"/>
+		<xs:element name="to" type="xs:date"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="paymentType">
+	<xs:restriction base="xs:NMTOKEN">
+		<xs:enumeration value="Cash"/>
+        <xs:enumeration value="Card"/>			
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="paymentFullType">
+	<xs:sequence>
+		<xs:element name="type" type="tns:paymentType"/>
+		<xs:element name="done" type="ro:yesNoType"/>	
+		<xs:element name="total_summ" type="ro:priceType"/>
+	</xs:sequence>
+	<xs:attribute name="currency" type="ro:currencyType"/>
+</xs:complexType>
+
+
+	
+</xs:schema>

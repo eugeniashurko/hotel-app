@@ -1,0 +1,111 @@
+body {
+    background-image: url("background.jpg"); 
+    font-family: 'PT Sans';
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    background-color: rgba(255,255,255,0.65);
+    color: rgba(217,88,13,0.8)
+}
+
+table.center {
+    width: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(255,255,255,0.65);
+}
+
+table, tr, td, th {
+    border-collapse: collapse;
+    border: 1px solid rgba(0,0,0,0.45);
+    vertical-align: top;
+    padding:10px;
+}
+
+table.inner *  {
+    border: 0;
+    padding:4px; 
+}
+
+table.inner {
+    border: 0;  
+}
+
+td.toupper {
+    background-color: rgba(14,171,176,0.45);
+    font-style: normal;
+    text-transform: uppercase;
+    height: auto;
+    vertical-align: center;
+}
+
+td.noncentral {
+    text-align: left;
+}
+
+td.negative {
+    color: red;
+}
+
+td.positive {
+    color: green;
+}
+
+td.enlarged {
+    font-size: 40px;
+}
+
+nav {
+    font-size: 24px;
+    width: auto;
+    margin-top: 10%;
+    margin-left: auto; 
+    margin-right: auto;
+    background-color: rgba(255,255,255,0.65);
+}
+
+ul {
+    margin-left: 30%;
+}
+
+form {
+}
+
+dl {
+
+    font-size: 20px;
+    width: auto;
+    margin-top: 10%;
+    margin-left: 10px; 
+    margin-right: auto;
+    background-color: rgba(255,255,255,0.65);
+}
+
+footer {
+    text-align: right;
+    background-color: rgba(255,255,255,0.65);
+}
+
+table.form {
+    border: 0;
+    background-color: rgba(255,255,255,0.65);
+}
+
+td.form, tr.form {
+    border: 0;
+}
+
+div.errors {
+    color: red;
+    font-size: 13px;
+}
+
+.message {
+    color: green;
+    font-size: 20px;
+}

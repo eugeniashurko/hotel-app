@@ -1,0 +1,68 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:ro="http://www.example.com/rooms"
+           xmlns:cl="http://www.example.com/clients"
+           xmlns:hi="http://www.example.com/history"> 
+<xs:import namespace="http://www.example.com/rooms" schemaLocation="hotel_rooms.xsd" />
+<xs:import namespace="http://www.example.com/clients" schemaLocation="hotel_clients.xsd"/>
+<xs:import namespace="http://www.example.com/history" schemaLocation="hotel_history.xsd"/>
+	
+	
+<xs:annotation>
+	<xs:appinfo>Hotel Database</xs:appinfo>
+	<xs:documentation>
+	Three separated sub-bases implemented by division sub-elements (rooms, clients, history) 
+	into three different namespaces (declared as xmlns:ro=http://www.example.com/rooms, 
+	xmlns:ro="http://www.example.com/clients" and xmlns:ro="http://www.example.com/history"). 
+	So, file hotel.xsd contains just basic structure and more detailed scheme is in imported 
+	files. 
+	In addition, main scheme file contains key and keyref definitions that provide relation 
+	between three bases (for example client_id in book of history).  They are defined here
+	so that XPath was given adequately. 
+	Mainly, local type definitions were preferred in purpose to save visual structure.
+	But, in cases where I tried to escape code duplication, I used global definitions for 
+	them (types) to be reused somewhere else.
+	</xs:documentation>
+</xs:annotation>	
+	
+	
+	<xs:element name="hotel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ro:rooms"/>
+				<xs:element ref="cl:clients"/>
+				<xs:element ref="hi:history"/>
+			</xs:sequence>		
+		</xs:complexType>
+		
+		
+	<!-- Key declarations -->
+		<!-- Client ID key and reference -->	
+		<xs:key name="clients_id">
+			<xs:selector xpath="cl:clients/cl:client"/>
+			<xs:field xpath="cl:id"/>
+		</xs:key>
+		<xs:keyref name="clients_id_in_history" refer="clients_id">
+			<xs:selector xpath="hi:history/hi:book"/>
+			<xs:field xpath="hi:client_id"/>
+		</xs:keyref>
+		
+		<!-- Room ID key and reference -->
+		<xs:key name="rooms_id">
+			<xs:selector xpath="ro:rooms/ro:room"/>
+			<xs:field xpath="ro:room_id"/>
+		</xs:key>
+		<xs:keyref name="rooms_id_in_history" refer="rooms_id">
+			<xs:selector xpath="hi:history/hi:book"/>
+			<xs:field xpath="hi:room_id"/>
+		</xs:keyref>
+		
+		<!-- Book ID key -->
+		<xs:key name="books_id">
+			<xs:selector xpath="hi:history/hi:book"/>
+			<xs:field xpath="hi:book_id"/>
+		</xs:key>
+		
+	
+		
+	</xs:element>
+</xs:schema>
